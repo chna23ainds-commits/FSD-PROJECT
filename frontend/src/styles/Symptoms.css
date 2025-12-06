@@ -1,0 +1,281 @@
+.symptoms {
+    padding: 20px;
+}
+
+.symptoms-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+.symptoms-container h1 {
+    color: var(--text-primary, #333);
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+/* Symptoms Section */
+.symptoms-section {
+    margin-bottom: 40px;
+}
+
+.symptoms-section h3 {
+    color: var(--text-primary, #333);
+    margin-bottom: 20px;
+}
+
+.symptoms-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.symptom-btn {
+    padding: 12px 16px;
+    border: 2px solid hsl(var(--input-border, 0 0% 80%));
+    border-radius: 20px;
+    background: hsl(var(--bg-primary, 0 0% 100%));
+    color: var(--text-primary, #333);
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.symptom-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: hsl(var(--primary, 217 91% 59%) / 0.1);
+    transform: translate(-50%, -50%);
+    transition: width 0.35s, height 0.35s;
+}
+
+.symptom-btn:hover {
+    border-color: hsl(var(--primary, 217 91% 59%));
+    transform: translateY(-2px);
+}
+
+.symptom-btn:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.symptom-btn.selected {
+    background: hsl(var(--primary, 217 91% 59%));
+    color: hsl(var(--primary-foreground, 0 0% 98%));
+    border-color: hsl(var(--primary, 217 91% 59%));
+    box-shadow: 0 4px 12px hsl(var(--primary, 217 91% 59%) / 0.3);
+}
+
+/* Analyze Button */
+.analyze-btn {
+    width: 100%;
+    max-width: 300px;
+    padding: 15px;
+    margin: 20px auto;
+    display: block;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(135deg, hsl(var(--primary, 217 91% 59%)), hsl(var(--primary, 217 91% 59%) / 0.85));
+    color: hsl(var(--primary-foreground, 0 0% 98%));
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.analyze-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    transition: left 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.analyze-btn:hover {
+    opacity: 0.95;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px hsl(var(--primary, 217 91% 59%) / 0.4);
+}
+
+/* Analysis Section */
+.analysis-section {
+    margin-top: 40px;
+    padding: 30px;
+    background: hsl(var(--bg-secondary, 0 0% 96%));
+    border-radius: 12px;
+    border: 1px solid hsl(var(--border-color, 0 0% 88%));
+    animation: slideUp 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.urgency-indicator {
+    padding: 15px;
+    border-left: 4px solid;
+    border-radius: 4px;
+    background: hsl(var(--info-bg, 217 100% 95%));
+    margin-bottom: 20px;
+    color: var(--text-primary, #333);
+}
+
+.urgency-indicator .low {
+    color: hsl(142 76% 36%);
+    font-weight: 600;
+}
+
+.urgency-indicator .medium {
+    color: hsl(25 95% 53%);
+    font-weight: 600;
+}
+
+.urgency-indicator .high {
+    color: hsl(0 84% 60%);
+    font-weight: 600;
+}
+
+/* Conditions Section */
+.conditions-section {
+    margin-bottom: 30px;
+}
+
+.conditions-section h3 {
+    color: var(--text-primary, #333);
+    margin-bottom: 20px;
+}
+
+.condition-card {
+    padding: 15px;
+    background: hsl(var(--bg-primary, 0 0% 100%));
+    border-radius: 8px;
+    margin-bottom: 15px;
+    border: 1px solid hsl(var(--input-border, 0 0% 80%));
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.condition-card h4 {
+    margin: 0 0 10px 0;
+    color: var(--text-primary, #333);
+}
+
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background: hsl(var(--input-border, 0 0% 80%));
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 8px;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.06);
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, hsl(var(--primary, 217 91% 59%)) 0%, hsl(142 76% 36%) 100%);
+    transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 4px;
+}
+
+.condition-card p {
+    margin: 0;
+    color: var(--text-secondary, #666);
+    font-size: 14px;
+}
+
+/* Recommendations Section */
+.recommendations-section {
+    margin-bottom: 30px;
+}
+
+.recommendations-section h3 {
+    color: var(--text-primary, #333);
+    margin-bottom: 20px;
+}
+
+.recommendations-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.recommendations-section li {
+    padding: 12px;
+    margin-bottom: 10px;
+    background: hsl(var(--bg-primary, 0 0% 100%));
+    border-left: 4px solid hsl(var(--primary, 217 91% 59%));
+    border-radius: 4px;
+    color: var(--text-primary, #333);
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.recommendations-section li:hover {
+    transform: translateX(4px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.recommendations-section .btn {
+    width: 100%;
+    padding: 12px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(135deg, hsl(var(--primary, 217 91% 59%)), hsl(var(--primary, 217 91% 59%) / 0.85));
+    color: hsl(var(--primary-foreground, 0 0% 98%));
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.recommendations-section .btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    transition: left 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.recommendations-section .btn:hover {
+    opacity: 0.95;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px hsl(var(--primary, 217 91% 59%) / 0.4);
+}
+
+@media (max-width: 768px) {
+    .symptoms-grid {
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    }
+
+    .analysis-section {
+        padding: 20px;
+    }
+}

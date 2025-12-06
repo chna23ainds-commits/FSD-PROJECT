@@ -1,0 +1,256 @@
+/* Dashboard - Modern Premium Design */
+
+.dashboard {
+    min-height: 100vh;
+    background: linear-gradient(180deg, hsl(var(--bg-primary, 0 0% 100%)) 0%, hsl(var(--bg-primary, 0 0% 100%) / 0.98) 100%);
+    padding-bottom: 2rem;
+}
+
+.dashboard-container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 2.5rem 1.5rem;
+}
+
+/* Welcome Section */
+.welcome-section {
+    text-align: center;
+    margin-bottom: 3.5rem;
+    animation: slideInDown 0.6s ease-out;
+}
+
+.dashboard-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 0 0 0.75rem 0;
+    color: hsl(var(--text-primary, 0 0% 20%));
+    letter-spacing: -0.5px;
+    background: linear-gradient(135deg, hsl(var(--primary, 217 91% 59%)), hsl(142 76% 36%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.dashboard-subtitle {
+    font-size: 1.05rem;
+    color: hsl(var(--text-secondary, 0 0% 40%));
+    margin: 0;
+    font-weight: 500;
+    line-height: 1.6;
+}
+
+.welcome-section::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, hsl(var(--primary, 217 91% 59%)), transparent);
+    margin: 1.25rem auto 0;
+    border-radius: 2px;
+}
+
+/* Feature Grid */
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    animation: fadeIn 0.8s ease-out 0.2s both;
+}
+
+/* Feature Card */
+.feature-card {
+    background: hsl(var(--bg-primary, 0 0% 100%));
+    border: 1.5px solid hsl(var(--border-color, 0 0% 88%));
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.07);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    text-decoration: none;
+    color: inherit;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    cursor: pointer;
+}
+
+/* Card Background Effect */
+.feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, hsl(var(--primary, 217 91% 59%)), hsl(142 76% 36%));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.feature-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at top right, hsl(var(--primary, 217 91% 59%) / 0.05), transparent);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+}
+
+/* Card Hover State */
+.feature-card:hover {
+    border-color: hsl(var(--primary, 217 91% 59%));
+    box-shadow: 0 12px 36px rgba(102, 126, 234, 0.15);
+    transform: translateY(-8px);
+}
+
+.feature-card:hover::before {
+    transform: scaleX(1);
+}
+
+.feature-card:hover::after {
+    opacity: 1;
+}
+
+/* Card Active State */
+.feature-card:active {
+    transform: translateY(-4px);
+}
+
+/* Card Focus State */
+.feature-card:focus-visible {
+    outline: 2px solid hsl(var(--primary, 217 91% 59%));
+    outline-offset: 2px;
+}
+
+/* Card Title */
+.feature-card h2 {
+    color: hsl(var(--primary, 217 91% 59%));
+    margin: 0;
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+    transition: color 0.3s ease;
+    position: relative;
+    z-index: 1;
+}
+
+.feature-card:hover h2 {
+    color: hsl(142 76% 36%);
+}
+
+/* Card Description */
+.feature-card p {
+    color: hsl(var(--text-secondary, 0 0% 40%));
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    font-weight: 500;
+    position: relative;
+    z-index: 1;
+    flex-grow: 1;
+}
+
+/* Card Icon Placeholder */
+.feature-card::before-icon {
+    position: relative;
+    z-index: 1;
+}
+
+/* Responsive Grid */
+@media (max-width: 1200px) {
+    .dashboard-container {
+        padding: 2rem 1.5rem;
+    }
+
+    .feature-grid {
+        gap: 1.75rem;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+
+    .dashboard-title {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .dashboard-container {
+        padding: 2rem 1rem;
+    }
+
+    .welcome-section {
+        margin-bottom: 2.5rem;
+    }
+
+    .dashboard-title {
+        font-size: 1.75rem;
+    }
+
+    .dashboard-subtitle {
+        font-size: 0.95rem;
+    }
+
+    .feature-grid {
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 1.5rem;
+    }
+
+    .feature-card {
+        padding: 1.75rem;
+        border-radius: 14px;
+    }
+
+    .feature-card h2 {
+        font-size: 1.25rem;
+    }
+
+    .feature-card p {
+        font-size: 0.9rem;
+        line-height: 1.6;
+    }
+}
+
+@media (max-width: 480px) {
+    .dashboard-container {
+        padding: 1.5rem 1rem;
+    }
+
+    .welcome-section {
+        margin-bottom: 2rem;
+    }
+
+    .dashboard-title {
+        font-size: 1.5rem;
+    }
+
+    .dashboard-subtitle {
+        font-size: 0.9rem;
+    }
+
+    .feature-grid {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+    }
+
+    .feature-card {
+        padding: 1.5rem;
+        border-radius: 12px;
+    }
+
+    .feature-card h2 {
+        font-size: 1.1rem;
+    }
+
+    .feature-card p {
+        font-size: 0.85rem;
+    }
+
+    .feature-card:hover {
+        transform: translateY(-4px);
+    }
+}
